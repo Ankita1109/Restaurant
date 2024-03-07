@@ -1,0 +1,189 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/commoncss/bootstrap_min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/customer/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Chief/Man_dashboar.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Passions+Conflict&family=Sassy+Frass&family=Yuji+Boku&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body style="background-color: rgba(241, 241, 241, 0.507);">
+    <!-- section navigation system -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" >
+        <div class="container-fluid">
+          <div class="navbar-brand bold  offset-sm-1 " >Logo</div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse  offset-sm-6" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'chiefDashBoard' %}">Home</a>
+              </li>
+              
+              
+              <li class="nav-item">
+                <a class="nav-link bold1" href="{% url 'ChiefLogout' %}" tabindex="-1" aria-disabled="true">
+                    <ion-icon class="relative-Position" style="top:24px" name="log-out"></ion-icon> LogOut
+                </a>
+              </li>
+            </ul>
+           <!-- <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>-->
+          </div>
+        </div>
+      </nav>
+      <script src="{% static 'js/bootstrap.js' %}"></script>
+      <!-- section navigation system -->
+      <hr>
+<section class="mangerBodyContent">
+       
+   <!--body content start--> 
+    <div class="container-fluid man_box ">
+            {% block content %}
+
+            <div class="row ">
+                <div class="col-sm-12 manager_banner ">
+                        <div class="wrapper">
+                            <h2>Chef  Block</h2>
+                            <p>We Welcome You Chef</p>
+                        </div>
+
+                </div>
+            </div>
+            <div class="row d-flex justify-content-around">
+                <ion-icon style="font-size: 100px;width: 120px;position: relative;top: -40px;background: rgb(255, 255, 255);border-radius: 50%;" name="caret-down-outline"></ion-icon>
+            </div>
+
+            
+            <div class="row  mb-5 ">
+                <div class="col-sm-12 text-center text-secondary">
+                    <h2> &nbsp Welcome {{request.session.ChiefUserId}}  &nbsp </h2>
+                </div>
+            </div>
+            <!--Cards one row start-->
+            <div class="row d-flex justify-content-around">
+                <div class="col-lg-3 d-flex justify-content-around  ">
+                    <section>
+                    <div class="card  Dashboard_card alert " style="width: 18rem;">
+                        <ion-icon class="border shadow" style="color: cornflowerblue;" name="eye-outline"></ion-icon>
+                          <div class="Dash_inner_card" style="border-bottom:1px solid rgba(0, 0, 0, 0.589);background: rgba(185, 185, 185, 0.116);;"></div> 
+                          <div class="Dash_inner_card"></div>  
+                        <div class="innerbox">
+                            <div class="wrapper123">
+                                <h2 class="bold">Visit Profile</h2>
+                                <div class="row d-flex justify-content-around">
+                                    <a href="{% url 'chief_Profile' %}" style="max-width:70%;" class="btn btn-warning">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                            <div class="col-sm-12 position-relative text-center bold card_style" style="top: 18px;">
+                                Profile
+                            </div>
+                    </div>
+                    
+
+                    </section>                 
+                </div>
+
+
+
+                <div class="col-lg-3 d-flex justify-content-around  ">
+                    <section>
+                    <div class="card  Dashboard_card alert " style="width: 18rem;">
+                        <ion-icon class="border shadow" style="color: rgb(0, 169, 221);" name="wallet"></ion-icon>
+                          <div class="Dash_inner_card" style="border-bottom:1px solid rgba(0, 0, 0, 0.589);background: rgba(185, 185, 185, 0.116);;"></div> 
+                          <div class="Dash_inner_card"></div>  
+                        <div class="innerbox">
+                            <div class="wrapper123">
+                                <h2 class="bold">Food Ordered</h2>
+                                <div class="row d-flex justify-content-around">
+                                    <a href="{% url 'List' %}" style="max-width:70%;" class="btn btn-warning">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                            <div class="col-sm-12 position-relative text-center bold card_style" style="top: 18px;">
+                                Records
+                            </div>
+                    </div>
+                    
+
+                    </section>                 
+                </div>
+
+
+
+               
+                
+                
+            </div>
+            <!--Cards one row end-->
+
+
+           
+
+
+            {% endblock  %}
+    </div>
+   <!--body content end--> 
+
+
+    <!--footer start-->
+    <div class="footer-dark mt-5">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">HomeDelivery</a></li>
+                            <li><a href="#">PartyOrder</a></li>
+                            <li><a href="#">CanteringOrder</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Chief Chafe</h3>
+                        <ul>
+                            <li><a href="#">Miss Riya Kumar</a></li>
+                            <li><a href="#">Mr Ron Kumar</a></li>
+                            <li><a href="#">Miss Raju Kumar</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Restaurant Name</h3>
+                        <p>
+                            About restro ..... bla ..........
+                            ...bla a a a a ...... . . . . . . . bla bla bla  . . . . 
+                            description Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque reprehenderit quibusdam culpa iusto quia, laborum aliquam quasi vero neque placeat. Cupiditate quas vero illo! Unde tempora neque eius consequatur eveniet?
+                        </p>
+                    </div>
+                    <div class="col item social">
+                        <a style="overflow:hidden;" href="#"><ion-icon class="FooterLogo" style="color: rgb(82, 34, 255);background: #fff;" name="logo-facebook"></ion-icon></a>
+                        <a style="overflow:hidden;" href="#"><ion-icon class="FooterLogo" style="color: rgb(0, 0, 0);background: rgba(13, 221, 6, 0.815);" name="logo-whatsapp"></ion-icon></a>
+                        <a style="overflow:hidden;" href="#"><ion-icon class="FooterLogo" style="color: rgb(255, 255, 255);background: rgb(82, 199, 253);" name="logo-twitter"></ion-icon></a>
+                        <a style="overflow:hidden;" href="#"><ion-icon class="FooterLogo" style="color: rgba(0, 174, 255, 0.945);background: #fff;" name="logo-linkedin"></ion-icon></a>
+                        
+                    </div>
+                </div>
+                <p class="copyright">Devloped By Ankita Sharma © 2023</p>
+            </div>
+        </footer>
+    </div>
+    <!--footer end-->
+</section>    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> 
+</body>
+</html>

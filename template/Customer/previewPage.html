@@ -1,0 +1,77 @@
+{% extends 'Customer/CusDashboard.html' %}
+
+{% block content %}
+
+<div class="container mt-3">
+    <div class="row mb-5">
+        <div class="col-lg-12 bold text-center text-danger ">Payment</div>
+    </div>
+
+    <div class="row mb-5">
+        <table class="table table-bordered ">
+            <thead>
+              <tr class="bg-secondary">
+               
+                <th class="text-light text-center tablebold">UserID</th>
+                <th class="text-light text-center tablebold">TotalAmount</th>                
+                
+              </tr>
+            </thead>
+            <tbody>            
+              <tr>                
+                <td class="text-dark text-center bold1" >{{user.userid}} </td>
+                <td class="text-secondary text-center" >₹{{user.total}} </td>                
+              </tr>                     
+            </tbody>
+          </table>
+    </div>
+
+    <div class="row">
+        <table class="table table-bordered ">
+            <thead>
+              <tr class="bg-primary">
+               
+                <th class="text-light text-center tablebold">SelectWay To pay</th>
+                <th class="text-light text-center tablebold">Action</th>                
+                
+              </tr>
+            </thead>
+            <tbody>            
+              <tr>                
+                <td class="text-primary text-center "style="font-weight:900;letter-spacing:2.4px;" >UPI Banking </td>
+                <td class="text-center" > 
+                    <a href="{% url 'PaymentOrder' user.total  user.check %}" class="btn btn-outline-secondary">Payment</a>
+                </td>                
+              </tr>     
+              <tr>                
+                <td class="text-primary text-center" style="font-weight:900;letter-spacing:2.4px;" >Net Banking </td>
+                <td class=" text-center" >
+                    <a href="{% url 'PaymentOrder' user.total user.check %}" class="btn btn-outline-secondary">Payment</a>
+                </td>                
+              </tr>                     
+              <tr>                
+                <td class="text-primary text-center " style="font-weight:900;letter-spacing:2.4px;" >Amazon Pay</td>
+                <td class=" text-center" >
+                    <a href="{% url 'PaymentOrder' user.total user.check %}" class="btn btn-outline-secondary">Payment</a>
+                </td>                
+              </tr>                     
+              <tr>                
+                <td class="text-primary text-center " style="font-weight:900;letter-spacing:2.4px;" >Credit Card </td>
+                <td class=" text-center" >
+                    <a href="{% url 'PaymentOrder' user.total user.check %}" class="btn btn-outline-secondary">Payment</a>
+                </td>                
+              </tr>                     
+              <tr>                
+                <td class="text-primary text-center "style="font-weight:900;letter-spacing:2.4px;" >  Debit Card </td>
+                <td class=" text-center" >
+                    <a href="{% url 'PaymentOrder' user.total user.check %}" class="btn btn-outline-secondary">Payment</a>
+                </td>                
+              </tr>                                     
+            </tbody>
+          </table>
+    </div>
+
+
+</div>
+
+{% endblock  %}

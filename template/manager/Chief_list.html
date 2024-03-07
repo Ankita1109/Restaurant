@@ -1,0 +1,91 @@
+{% extends 'manager/M_dashboard.html' %}
+
+{% block content %}
+
+{% load static %}
+{% if view %}
+
+<!--for profile visit section-->
+<div class="container mt-5">
+  <div class="row d-flex justify-content-around mb-5">    
+    <div class="card" style="width:16rem;max-height: 16rem;padding:5px;">
+      {% if pic %}
+      <img style="width:15rem;max-height: 15rem;" class="card-img-top mb-5 shadow" src="/media/{{pic.ProfileImage}}" alt="Card image">
+      {% else %}
+      <img style="width:15rem;max-height: 15rem;" class="card-img-top shadow mb-5" src="{% static 'images/Vodka.jpg' %}" alt="Card image">
+      {% endif %}
+    </div>
+    <div class="row mb-3 mt-3  d-flex justify-content-around ">
+        <div class="col-md-8 alert shadow">
+          <!--form box start-->
+          <form action="" method="post">
+            {% csrf_token %}
+            <div class="container bg-light alert shadow border">
+                {% for i,j  in view  %}
+                  <div class="row mb-3 ">
+                      <div class="col-lg-3 label-control offset-lg-1 bold1 mb-1">
+                        {{i}} &nbsp :
+                      </div>
+                      <div class="col-lg-7">
+                        <input type="text" class="form-control bg-light" name="{{i}}" value="{{j}}" name="" id="">
+                      </div>
+                  </div>
+                  
+                {% endfor %} 
+                <div class="row d-flex justify-content-around">
+                  <input type="submit" style="max-width: 150px;" name='update' class="btn btn-warning" value="Update">
+                </div>
+            </div>
+          </form>
+          <!--form box end-->
+        </div>
+    </div>
+
+  </div>
+</div>
+<!--for profile visit section-->
+
+
+
+{% else %}
+<div class="row">
+    <a href="{% url 'StaffAdd' %}" class="btn btn-outline-info mt-5 offset-sm-1" style="max-height: 5vh;max-width: 200px;">Add Chief</a>
+</div>
+
+<div class="container mt-3">
+    <h2>{{table.header}}</h2>
+    <p></p>
+    
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr class="bg-dark">
+            {% for j in table.column %}
+              <th class="text-light bold1 text-center">{{j}}</th>
+            {% endfor %}
+            <th class="text-light bold1 text-center ">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in table.data  %}
+          <tr>
+            {% for j,k in i.items  %}
+            <td class="text-secondary text-center"> {{k}} </td>  
+            {% endfor %}
+            <td class="text-secondary d-flex justify-content-around">
+              <form action="" method="post" class="d-flex inline">  
+                {% csrf_token %}              
+                <input type="text" name="id" hidden="true" id="" value="{{i.UserId}}">
+                <input class="btn btn-warning" name="view" type="submit" value="View"> 
+                &nbsp &nbsp
+                <input class="btn btn-danger" name="Delete" type="submit" value="Delete">
+              </form>   
+          </td>   
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</div>
+{% endif %}
+{% endblock  %}

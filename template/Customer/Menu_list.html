@@ -1,0 +1,323 @@
+{% extends 'Customer/CusDashboard.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+<!--Banner Section start-->
+{% if HeaderName.profile %}
+<div class="row">
+  <div class="col-sm-12 position-relative">
+      <img class="SweetDishBanner" src="/media/{{HeaderName.profile}}" alt="">
+      <div class="BaveragesBannerhead">
+          <div class="wrapper">
+              <h2 class="BeveragesHeader">{{HeaderName.name}}</h2>
+              <p style="left: -5px;position: relative;">{{HeaderName.para}}</p>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="row  d-flex justify-content-around " >
+
+  <div class="col-sm-3  position-relative d-flex justify-content-around" style="height: 14.5vh;">
+    <div class="card alert Bannerarrow ">
+     <a href=""><ion-icon class="text-warning" name="chevron-down-outline">dw</ion-icon> </a>
+    </div>
+  </div>
+
+</div>
+{% endif %}
+<!--Banner Section End-->
+
+
+<div class="container CusMenuContanier">
+    <div class="row mt-2 mb-3 ">
+        
+        <div class="col-sm-12 bold text-center text-secondary"><span style="border-bottom:2px solid rgb(255, 233, 36);"> &nbsp {{HeaderName.menu}} :  &nbsp</span></div>
+    </div>
+
+                <!--menu start -->
+    {% if starter.veg or starter.nonveg %}
+    <div class="row">
+        <div class="col-sm-2 text-center bold text-secondary">
+            Starter :-
+        </div>
+    </div>
+    {% if starter.veg  %}
+      <div class="row mb-2">
+          <div class="col-sm-2 offset-sm-1 bold text-secondary">
+              Veg :-
+          </div>
+      </div>
+
+      <!--Starter start-->
+      {% for j in starter.veg %}
+      <div class="row d-flex justify-content-around">
+          {% for i in j %}
+              <div class="col-sm-3 mb-4 d-flex justify-content-around">
+                  <div class="card border shadow" style="width:18rem;padding: 6px;">
+                      <img style="max-height:35vh;" class="card-img-top border shadow" src="/media/{{i.starterIamge}}" alt="Card image">
+                      <div class="card-body">
+                        <h4 class="card-title">{{i.StarterName}} </h4>
+                        <p class="card-text">
+                          Cost :<span style="font-size: 2vh;">&nbsp ₹</span>{{i.Startercost}} &nbsp  ({{i.categories_id}})
+                        </p>
+                        <form action="" method="post">
+                          {% csrf_token %}
+                          <input type="text" name="itemid" hidden="true" id="" value="{{i.id}}">
+                          <input type="text" name="itemname" hidden="true" id="" value="{{i.StarterName}}">
+                          <input type="text" name="cost" id="" hidden="true" value="{{i.Startercost}}">
+                          <input class="btn btn-warning" name="Menusubmit" type="submit" value="Add To Cart">
+                        </form>
+                      </div>
+                    </div>
+              </div>           
+          {% endfor %}
+      </div>
+      {% endfor %}
+      {% endif %}
+    
+        {% if starter.nonveg  %} 
+        <div class="row mt-4 mb-2">
+            <div class="col-sm-2 offset-sm-1 bold text-secondary">
+                NonVeg :-
+            </div>
+        </div>
+
+        <!--Starter start-->
+        {% for j in starter.nonveg %}
+        <div class="row d-flex justify-content-around">
+            {% for i in j %}
+                <div class="col-sm-3 mb-4 d-flex justify-content-around">
+                    <div class="card border shadow" style="width:18rem;padding: 6px;">
+                        <img style="max-height:35vh;" class="card-img-top border shadow" src="/media/{{i.starterIamge}}" alt="Card image">
+                        <div class="card-body">
+                          <h4 class="card-title">{{i.StarterName}} </h4>
+                          <p class="card-text">
+                            Cost :<span style="font-size: 2vh;">&nbsp ₹</span>{{i.Startercost}} &nbsp  ({{i.categories_id}})
+                          </p>
+                          <form action="" method="post">
+                            {% csrf_token %}
+                            <input type="text" name="itemid" hidden="true" id="" value="{{i.id}}">
+                            <input type="text" name="itemname" hidden="true" id="" value="{{i.StarterName}}">
+                            <input type="text" name="cost" id="" hidden="true" value="{{i.Startercost}}">
+                            <input class="btn btn-warning" name="Menusubmit" type="submit" value="Add To Cart">
+                          </form>
+                        </div>
+                      </div>
+                </div>           
+            {% endfor %}
+        </div>
+        {% endfor %}
+        {% endif %}
+    {% endif %}
+
+    {% if maincource.veg or maincource.nonveg  %}
+  <!--Main cource start-->
+  <div class="row mt-4">
+    <div class="col-sm-3 text-center bold text-secondary">
+        MainCource :-
+    </div>
+  </div>
+
+  {% if maincource.veg  %}
+      <div class="row mt-4 mb-2">
+          <div class="col-sm-2 offset-sm-1 bold text-secondary">
+              Veg :-
+          </div>
+      </div>
+
+      {% for j in maincource.veg %}
+      <div class="row d-flex justify-content-around">
+            {% for i in j %}
+              <div class="col-sm-3 mb-5 d-flex justify-content-around">
+                  <div class="card border shadow" style="width:18rem;padding: 6px;">
+                      <img style="max-height:35vh;" class="card-img-top border shadow" src="/media/{{i.MaincourceIamge}}" alt="Card image">
+                      <div class="card-body">
+                        <h4 class="card-title">{{i.MaincourceName}}</h4>
+                        <p class="card-text">
+                          Cost :<span style="font-size: 2vh;">&nbsp ₹</span>{{i.MaincourceCost}} &nbsp  ({{i.categories_id}})
+                        </p>
+                        <form action="" method="post">
+                          {% csrf_token %}
+                          <input type="text" hidden="true" name="itemid" id="" value="{{i.id}}">
+                          <input type="text" hidden="true" name="itemname" id="" value="{{i.MaincourceName}}">
+                          <input type="text" hidden="true" name="cost" id="" value="{{i.MaincourceCost}}">
+                          <input class="btn btn-warning" name="Menusubmit" type="submit" value="Add To Cart">
+                        </form>
+                      </div>
+                    </div>
+              </div>           
+            {% endfor %}
+      </div>
+      {% endfor %}
+    {% endif %}
+
+    {% if maincource.nonveg %}
+    <div class="row mt-4 mb-2">
+      <div class="col-sm-2 offset-sm-1 bold text-secondary">
+          NonVeg :-
+      </div>
+    </div>
+
+
+    {% for j in maincource.nonveg%}
+      <div class="row d-flex justify-content-around">
+            {% for i in j %}
+              <div class="col-sm-3 mb-5 d-flex justify-content-around">
+                  <div class="card border shadow" style="width:18rem;padding: 6px;">
+                      <img style="max-height:35vh;" class="card-img-top border shadow" src="/media/{{i.MaincourceIamge}}" alt="Card image">
+                      <div class="card-body">
+                        <h4 class="card-title">{{i.MaincourceName}}</h4>
+                        <p class="card-text">
+                          Cost :<span style="font-size: 2vh;">&nbsp ₹</span>{{i.MaincourceCost}} &nbsp  ({{i.categories_id}})
+                        </p>
+                        <form action="" method="post">
+                          {% csrf_token %}
+                          <input type="text" name="itemid" hidden="true" id="" value="{{i.id}}">
+                          <input type="text" name="itemname" hidden="true" id="" value="{{i.MaincourceName}}">
+                          <input type="text" name="cost" hidden="true" id="" value="{{i.MaincourceCost}}">
+                          <input class="btn btn-warning" name="Menusubmit" type="submit" value="Add To Cart">
+                        </form>
+                      </div>
+                    </div>
+              </div>           
+            {% endfor %}
+      </div>
+      {% endfor %}
+    {% endif %}
+
+  {% endif %}
+
+  {% if ricechapti.chapati %}
+  <!--Sweet Dish start-->
+  <div class="row mt-5 mb-4">
+    <div class="col-sm-2 text-center bold text-secondary">
+        Bread :-
+    </div>
+  </div>
+  
+
+  {% for j in ricechapti.chapati  %}
+  <div class="row d-flex justify-content-around">
+      {% for i in j %}
+          <div class="col-sm-3 mb-2 d-flex justify-content-around">
+              <div class="card border shadow" style="width:18rem;padding: 6px;">
+                  <img style="max-height:35vh;" class="card-img-top border shadow" src="/media/{{i.ItemImage}}" alt="Card image">
+                  <div class="card-body">
+                    <h4 class="card-title">{{i.ItemName}}</h4>
+                    <p class="card-text">
+                      Cost :<span style="font-size: 2vh;">&nbsp ₹</span>{{i.ItemCost}} &nbsp  (Thai)
+                    </p>
+                    <form action="" method="post">
+                      {% csrf_token %}
+                      <input type="text" name="itemid" hidden="true" id="" value="{{i.id}}">
+                      <input type="text" name="itemname" hidden="true" id="" value="{{i.ItemName}}">
+                      <input type="text" name="cost" hidden="true" id="" value="{{i.ItemCost}}">
+                      <input class="btn btn-warning" name="Menusubmit" type="submit" value="Add To Cart">
+                    </form>
+                  </div>
+                </div>
+          </div>
+      {% endfor %}
+          
+  </div>
+  {% endfor %}
+  {% endif %}
+
+  <!--Rice start-->
+  {% if ricechapti.rice %}
+  <div class="row mt-5 mb-4">
+    <div class="col-sm-2 text-center bold text-secondary">
+        Rice :-
+    </div>
+  </div>
+  
+
+  
+  {% for j in ricechapti.rice  %}
+  <div class="row d-flex justify-content-around">
+      {% for i in j %}
+          <div class="col-sm-3 mb-2 d-flex justify-content-around">
+              <div class="card border shadow" style="width:18rem;padding: 6px;">
+                  <img style="max-height:35vh;" class="card-img-top border shadow" src="/media/{{i.ItemImage}}" alt="Card image">
+                  <div class="card-body">
+                    <h4 class="card-title">{{i.ItemName}}</h4>
+                    <p class="card-text">
+                      Cost :<span style="font-size: 2vh;">&nbsp ₹</span>{{i.ItemCost}} &nbsp  (Thai)
+                    </p>
+                    <form action="" method="post">
+                      {% csrf_token %}
+                      <input type="text" name="itemid" hidden="true" id="" value="{{i.id}}">
+                      <input type="text" name="itemname" hidden="true" id="" value="{{i.ItemName}}">
+                      <input type="text" name="cost" hidden="true" id="" value="{{i.ItemCost}}">
+                      <input class="btn btn-warning" name="Menusubmit" type="submit" value="Add To Cart">
+                    </form>
+                  </div>
+                </div>
+          </div>
+      {% endfor %}
+          
+  </div>
+  {% endfor %}
+  {% endif %}
+
+
+  {% if starter and maincource  %}
+  <!--Sweet Dish start-->
+  <div class="row mt-5 mb-4">
+    <div class="col-sm-2 text-center bold text-secondary">
+        SweetDish :-
+    </div>
+  </div>
+  
+
+  
+  <div class="row d-flex justify-content-around">
+
+          <div class="col-sm-3 mb-2 d-flex justify-content-around">
+              <div class="card border shadow" style="width:18rem;padding: 6px;">
+                  <img style="max-height:35vh;" class="card-img-top border shadow" src="{% static 'images/Sweet/pexels-vindhya-chandrasekharan-7406888.jpg' %}" alt="Card image">
+                  <div class="card-body">
+                    <h4 class="card-title">Sweet Dish</h4>
+                    
+                    <a href="{% url 'SweetdishCorner' %}" class="btn btn-info">Vist</a>
+                  </div>
+                </div>
+          </div>
+          
+          <div class="col-sm-3 mb-2 d-flex justify-content-around">
+            <div class="card border shadow" style="width:18rem;padding: 6px;">
+                <img style="max-height:35vh;" class="card-img-top border shadow" src="{% static 'images/Sweet/pexels-piotr-arnoldes-6025811.jpg' %}" alt="Card image">
+                <div class="card-body">
+                  <h4 class="card-title">Ice Cream</h4>
+                  
+                  <a href="{% url 'IcecreamCorner' %}" class="btn btn-info">Visit</a>
+                </div>
+              </div>
+          </div>
+
+        <div class="col-sm-3 mb-2 d-flex justify-content-around">
+          <div class="card border shadow" style="width:18rem;padding: 6px;">
+              <img style="max-height:35vh;" class="card-img-top border shadow" src=" {% static 'images/Sweet/pexels-lisa-918327.jpg' %} " alt="Card image">
+              <div class="card-body">
+                <h4 class="card-title">Chocolate</h4>
+                
+                <a href="{% url 'ChocloteCorner' %}" class="btn btn-info">Visit</a>
+              </div>
+            </div>
+        </div>
+         
+  </div>
+
+  {% endif %}
+
+  
+
+
+
+</div>
+
+
+{% endblock  %}

@@ -1,0 +1,388 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/commoncss/bootstrap_min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/customer/dashboard.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/customer/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/customer/CusMenu_list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/customer/Beverages.css' %}">
+    <link rel="stylesheet" href="{% static 'css/customer/SweetCorner.css' %}">
+
+    
+    <title>Document</title>
+</head>
+<body >
+    
+
+  
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand offset-sm-1 navheader " href="#">Logo</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offset-sm-6 collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'UserDashboard' %}">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  SweetCorner
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                  <li><a class="dropdown-item" href="{% url 'ChocloteCorner' %}">Chocolate Corner</a></li>
+                  <li><a class="dropdown-item" href="{% url 'IcecreamCorner' %}">IceCream Corner</a></li>
+                  <li><a class="dropdown-item" href="{% url 'SweetCorner' %} ">SweetCorner</a></li>
+                  
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item disabled " href="#">Select Option</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Beverages
+                </a>
+                
+                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                  <li><a class="dropdown-item" href="{% url 'MocktailCorner' %}">Mocktail Corner</a></li>
+                  <li><a class="dropdown-item" href="{% url 'CocktailCorner' %}">Cocktail Corner</a></li>
+                  <li><a class="dropdown-item" href="{% url 'VodkaCorner' %}">Vodka Corner</a></li>
+                  <li><a class="dropdown-item" href="{% url 'BeerCorner' %}">Beer Corner</a></li>
+                  <li><a class="dropdown-item" href="{% url 'colddrinkCorner' %}">Coldrink</a></li>
+                  <li><a class="dropdown-item" href="{% url 'WineCorner' %}">Wine Corner</a></li>
+                  <li><a class="dropdown-item" href=" {% url 'BeveragesMenu_list' %} ">All Drinks</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item disabled" href="#">Select Option</a></li>
+                </ul>
+              </li>
+              
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Categories
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                  <li><a class="dropdown-item" href="{% url 'SnacksDish' %}">Snacks</a></li>
+                  <li><a class="dropdown-item" href="{% url 'StarterMenuList' %}">Starter</a></li>
+                  <li><a class="dropdown-item" href="{% url 'VegetraianList' %}">Vegetrain</a></li>
+                  <li><a class="dropdown-item" href="{% url 'NonVegetraianList' %}">Non Vegetrain</a></li>
+                  <li><a class="dropdown-item" href="{% url 'ChineseDish' %}">Chinese</a></li>
+                  <li><a class="dropdown-item" href="{% url 'ThaiMenuList' %}">Thai</a></li>
+                  <li><a class="dropdown-item" href="{% url 'ContentailMenuList' %}">Continenetal</a></li>
+                  <li><a class="dropdown-item" href="{% url 'ItalianMenuList' %}">Italian</a></li>
+                  <li><a class="dropdown-item" href="{% url 'MenuList' %}">All Menu</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item disabled " href="#">Select Option</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="{% url 'CartCorner' %}" >
+                  <ion-icon  style="position:relative;top:3px;" name="cart"></ion-icon>  Cart
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link  bold1" href="{% url 'LogOut' %}" >
+                  <ion-icon  style="position:relative;top:3px;" name="log-out"></ion-icon>  LogOut
+                </a>
+              </li>
+            </ul>
+            <!--<form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>-->
+          </div>
+        </div>
+    </nav>
+
+      <script src="{% static 'js/bootstrap.js' %}"></script>
+
+
+<section class="bodybox">
+
+    {% block content %}
+
+        <div class="row ">
+            <div class="BannerMainBox ">
+              <div class="BannerBox Cusbanner"></div>
+              <div class="BannerBox ">
+                      <div class="wrapper">
+                        <div class="text-area">
+                           WELCOME RESTRO
+                        </div>
+                        <p><span>Famous for :</span>
+                           Thali,Chinese,Italian, Continenetal
+
+                        </p>
+                      </div>
+              </div>              
+            </div>
+       </div>
+
+       <!--row row 2 start-->
+       <div class="row  d-flex justify-content-around " >
+
+           <div class="col-sm-3  position-relative d-flex justify-content-around" style="height: 14.5vh;">
+             <div class="card alert Bannerarrow ">
+              <a href="#categories"><ion-icon class="text-secondary" name="chevron-down-outline">dw</ion-icon> </a>
+             </div>
+           </div>
+
+       </div>
+       <!--row row 2 end-->
+       {% if card %}
+       <!--row 3 start-->
+       <div class="row mt-4 d-flex justify content around">
+         <div class="col-sm-12 mb-4 text-center bold text-secondary">  TODAY SPECIAL :Dish</div>
+         <div class="col-sm-12 Crdwrapper d-flex justify-content-around ">
+            <!--dish one start-->
+            {% for j in card %}
+                    <div class="item">
+                        <div class="Cardimg_box">
+                          <img style="max-width:100%;max-height:100%;min-height:85%;" class="card-img-top" src="/media/{{j.BannerImage}}" alt="Card image">
+                        </div>
+                        <div class="Cardcontent">
+                            <div class="contentDesign">                              
+                              <h3>{{j.dishName}}</h3>
+                              <p> Cost : &nbsp {{j.DishCost}} </p>
+                              <form action="" method="post">
+                                {% csrf_token %}
+                                <input type="text" name="Carddish" hidden='true' id="{{j.dishName}}">
+                                <input type="text" name="cardCost" hidden='true' id="{{j.DishCost}}">
+                                <input class="btn btn-info" type="submit" name="CardSubmit" value="Order">
+                              </form>
+                            </div>
+                        </div>
+                    </div>
+            {% endfor %}
+            <!--dish one end-->
+         </div>
+       </div>
+       <!--row 3 end-->
+       {% endif %}
+
+      <!--row 4 start-->
+      <div class="row mt-5 ">
+
+          <div class="col-sm-3 text-secondary text-center bold ">
+              Categories are:
+          </div>
+
+      </div>  
+      <!--row 4 end-->
+
+      <!--categories block start-->
+      <div id="categories" class="conatiner mt-4">
+          <!--categories 1 start-->
+            <div class="row d-flex justify-content-around">
+              <div class="col-md-4 mb-3 row d-flex justify-content-around">
+                    <div class="card border shadow" style="width:370px">
+                      <img style="max-height:35vh;" class="card-img-top" src="{% static 'images/vegetraian.jpg' %}" alt="Card image">
+                      <div class="card-body">
+                        <h4 class="card-title">Vegetarain</h4>
+                        <p class="card-text">Try Something Fresh.</p>
+                        <a href="{% url 'VegetraianList' %}" class="btn btn-warning"> View</a>
+                      </div>
+                    </div>
+              </div>
+              <div class="col-md-4 mb-3 row d-flex justify-content-around">
+                    <div class="card border shadow" style="width:370px">
+                      <img style="max-height:35vh;" class="card-img-top" src="{% static 'images/NonVeg.jpg' %}" alt="Card image">
+                      <div class="card-body">
+                        <h4 class="card-title">Non Vegetarian </h4>
+                        <p class="card-text">Try Something Fresh.</p>
+                        <a href="{% url 'NonVegetraianList' %}" class="btn btn-warning"> View</a>
+                      </div>
+                    </div>
+              </div>              
+            </div>
+          <!--categories 1 end-->
+          <!--categories 2 start-->
+          <div class="row d-flex justify-content-around">
+            <div class="col-md-4 mb-3 row d-flex justify-content-around">
+                  <div class="card border shadow" style="width:370px">
+                    <img style="max-height:35vh;" class="card-img-top" src="{% static 'images/chinese.jpg' %}" alt="Card image">
+                    <div class="card-body">
+                      <h4 class="card-title">Chinese </h4>
+                      <p class="card-text">Try Something Fresh.</p>
+                      <a href="{% url 'ChineseDish' %}" class="btn btn-warning">View</a>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-4 mb-3 row d-flex justify-content-around">
+                  <div class="card border shadow" style="width:370px">
+                    <img style="max-height:35vh;" class="card-img-top" src="{% static 'images/italian.jpg' %}" alt="Card image">
+                    <div class="card-body">
+                      <h4 class="card-title">Italian</h4>
+                      <p class="card-text">Try Something Fresh.</p>
+                      <a href="{% url 'ItalianMenuList' %}" class="btn btn-warning">View</a>
+                    </div>
+                  </div>
+            </div>              
+          </div>
+          <!--categories 2 end-->
+          <!--categories 3 start-->
+          <div class="row d-flex justify-content-around">
+            <div class="col-md-4 mb-3 row d-flex justify-content-around">
+                  <div class="card border shadow" style="width:370px">
+                    <img style="max-height:35vh;" class="card-img-top" src="{% static 'images/Contentail.jpg' %}" alt="Card image">
+                    <div class="card-body">
+                      <h4 class="card-title">Continenetal</h4>
+                      <p class="card-text">Try Something Fresh.</p>
+                      <a href="{% url 'ContentailMenuList' %}" class="btn btn-warning">View</a>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-4 mb-3 row d-flex justify-content-around">
+                  <div class="card border shadow " style="width:370px">
+                    <img style="max-height:35vh;" class="card-img-top" src="{% static 'images/Thai.jpg' %}" alt="Card image">
+                    <div class="card-body">
+                      <h4 class="card-title">Thai</h4>
+                      <p class="card-text">Try Something Fresh.</p>
+                      <a href="{% url 'ThaiMenuList' %}" class="btn btn-warning">View</a>
+                    </div>
+                  </div>
+            </div>              
+          </div>
+          <!--categories 3 start-->
+      </div>
+      <!--categories block end-->
+
+
+      <!--All Visit Menu Start -->
+      <div class="container">
+        <div class="row mt-4 bg-dark">
+            <div class="col-sm-4 mb-2 text-light text-center bold alert">
+              Visit all Menu
+            </div>
+            <div class="col-sm-2 d-flex justify-content-around  alert  ">
+                  <a href=" {% url 'MenuList' %} " class="btn btn-outline-light">View </a>
+            </div>
+        </div>
+      </div>
+      <!--All Visit Menu end -->
+
+      <!--Beverages start-->
+      <div class="conatiner mt-4  Beverages ">
+          <!--Beverages heading-->
+          <div class="row ">
+            <div class="col-sm-3 text-secondary  text-center bold"> 
+             <span style="border-bottom:.5px solid black;"> Beverages :</span>
+            </div>
+          </div>
+
+          <!--Beverages card start-->
+          <div class="row ">
+            <div class="col-sm-3 alert d-flex justify-content-around">
+              <!--card 1-->
+                  <div class="card shadow" style="width:14rem">
+                    <img style="height:22vh;" class="card-img-top" src=" {% static 'images/Mocktail2..jpg' %} " alt="Card image">
+                    <div class="card-img-overlay">
+                      <h4 class="card-title text-light">MOCKTAIL</h4>
+                      <p class="card-text text-light">Try Something New.</p>                      
+                      <a href=" {% url 'MocktailCorner' %} " class="btn btn-warning">Visit</a>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col-sm-3 alert d-flex justify-content-around">
+              <!--card 1-->
+                  <div class="card shadow" style="width:14rem">
+                    <img style="height:22vh;" class="card-img-top" src="{% static 'images/Vodka.jpg' %}" alt="Card image">
+                    <div class="card-img-overlay">
+                      <h4 class="card-title text-light">VODKA</h4>
+                      <p class="card-text text-light">Try Something New.</p>
+                      <a href=" {% url 'VodkaCorner' %} " class="btn btn-warning">Visit</a>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col-sm-3 alert d-flex justify-content-around">
+              <!--card 1-->
+                  <div class="card shadow" style="width:14rem">
+                    <img style="height:22vh;" class="card-img-top" src="{% static 'images/beer.jpg' %}" alt="Card image">
+                    <div class="card-img-overlay">
+                      <h4 class="card-title text-light">BEER</h4>
+                      <p class="card-text text-light">Try Something New.</p>
+                      <a href="{% url 'BeerCorner' %}" class="btn btn-warning">Visit</a>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col-sm-3 alert d-flex justify-content-around">
+              <!--card 1-->
+                  <div class="card shadow" style="width:14rem">
+                    <img style="height:22vh;" class="card-img-top" src="{% static 'images/Wine.jpg' %}" alt="Card image">
+                    <div class="card-img-overlay">
+                      <h4 class="card-title text-light">WINE</h4>
+                      <p class="card-text text-light">Try Something New.</p>
+                      <a href="{% url 'WineCorner' %}" class="btn btn-warning">Visit</a>
+                    </div>
+                  </div>
+            </div>
+            
+          </div>
+          <!--Beverages card end-->
+
+      </div>
+      <!--Beverages end-->
+
+      {% endblock  %}
+      <!--footer start-->
+      <div class="footer-dark mt-5 ">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">HomeDelivery</a></li>
+                            <li><a href="#">PartyOrder</a></li>
+                            <li><a href="#">CanteringOrder</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Chief Chafe</h3>
+                        <ul>
+                            <li><a href="#">Miss Riya Kumar</a></li>
+                            <li><a href="#">Mr Ron Kumar</a></li>
+                            <li><a href="#">Miss Raju Kumar</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Restaurant Name</h3>
+                        <p>
+                            About restro ..... bla ..........
+                            ...bla a a a a ...... . . . . . . . bla bla bla  . . . . 
+                            description Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque reprehenderit quibusdam culpa iusto quia, laborum aliquam quasi vero neque placeat. Cupiditate quas vero illo! Unde tempora neque eius consequatur eveniet?
+                        </p>
+                    </div>
+                    <div class="col item social">
+                      <a style="overflow:hidden;" href="#"><ion-icon class="FooterLogo" style="color: rgb(82, 34, 255);background: #fff;" name="logo-facebook"></ion-icon></a>
+                      <a style="overflow:hidden;" href="#"><ion-icon class="FooterLogo" style="color: rgb(0, 0, 0);background: rgba(13, 221, 6, 0.815);" name="logo-whatsapp"></ion-icon></a>
+                      <a style="overflow:hidden;" href="#"><ion-icon class="FooterLogo" style="color: rgb(255, 255, 255);background: rgb(82, 199, 253);" name="logo-twitter"></ion-icon></a>
+                      <a style="overflow:hidden;" href="#"><ion-icon class="FooterLogo" style="color: rgba(0, 174, 255, 0.945);background: #fff;" name="logo-linkedin"></ion-icon></a>
+                     
+                    </div>
+                </div>
+                <p class="copyright">Devloped By Ankita Sharma © 2023</p>
+            </div>
+        </footer>
+    </div>
+      <!--footer end-->
+
+  </section>
+
+  
+
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>

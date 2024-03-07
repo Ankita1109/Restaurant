@@ -1,0 +1,65 @@
+{% extends 'Customer/CusDashboard.html' %}
+
+{% load static %}
+{% block content %}
+
+<div class="sweetcorner">
+    <div class="row">
+        <div class="col-sm-12 position-relative">
+            <img class="SweetDishBanner" src="/media/{{dish.banner}}" alt="">
+            <div class="BaveragesBannerhead">
+                <div class="wrapper">
+                    <h2 class="BeveragesHeader">{{dish.header}} </h2>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-2 d-flex justify-content-around " >
+
+        <div class="col-sm-3  position-relative d-flex justify-content-around" style="height: 14.5vh;">
+          <div class="card alert Bannerarrow ">
+           <a href="#Icecream"><ion-icon class="text-warning" name="chevron-down-outline">dw</ion-icon> </a>
+          </div>
+        </div>
+
+    </div>
+
+
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-sm-12 bold text-secondary text-center">
+                {{Dish.title}}
+            </div>
+        </div>
+
+        <!--Starter start-->
+      {% for j in dish.obj %}
+      <div class="row d-flex justify-content-around">
+          {% for i in j %}
+              <div class="col-sm-3 mb-4 d-flex justify-content-around">
+                  <div class="card border shadow" style="width:18rem;padding: 6px;">
+                      <img style="max-height:35vh;" class="card-img-top border shadow" src="/media/{{i.ItemImage}}" alt="Card image">
+                      <div class="card-body">
+                        <h4 class="card-title">{{i.ItemName}} </h4>
+                        <p class="card-text">
+                          Cost :<span style="font-size: 2vh;">&nbsp ₹</span>{{i.ItemCost}} &nbsp  
+                        </p>
+                        <form action="" method="post">
+                          {% csrf_token %}
+                          <input type="text" name="itemid" hidden="true" id="" value="{{i.id}}">
+                          <input type="text" name="itemname" hidden="true" id="" value="{{i.ItemName}}">
+                          <input type="text" name="cost" id="" hidden="true" value="{{i.ItemCost}}">
+                          <input class="btn btn-warning" name="Menusubmit" type="submit" value="Add To Cart">
+                        </form>
+                      </div>
+                    </div>
+              </div>           
+          {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+
+</div>
+
+{% endblock  %}

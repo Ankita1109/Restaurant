@@ -1,0 +1,88 @@
+{% extends 'manager/M_dashboard.html' %}
+
+{% block content %}
+
+<div class="container mt-3">
+    <div class="row d-flex justify-content-around">
+            <div class="card border-info shadow text-dark bg-warning mb-3" style="max-width: 14rem;padding: 5px;">
+                
+                <div class="card-body">
+                <h5 class="card-title mb-3">Total Sale</h5>
+                <p class="card-text text-center ">₹ {{table.TotalSale}} only</p>
+                </div>
+            </div>
+
+            <div class="card border-info shadow text-dark bg-warning mb-3" style="max-width: 14rem;padding: 5px;">
+                
+                <div class="card-body">
+                <h5 class="card-title mb-3">Total Staff</h5>
+                <p class="card-text text-center">{{table.totalstaff}}.</p>
+                </div>
+            </div>
+
+
+            <div class="card border-info shadow text-dark bg-warning mb-3" style="max-width: 14rem;padding: 5px;">
+                
+                <div class="card-body">
+                <h5 class="card-title mb-3">Total Customer</h5>
+                <p class="card-text text-center"> {{table.totalCustomer}}  .</p>
+                </div>
+            </div>
+
+            
+    </div>
+            <div class="row">
+                <div class="container  alert-secondary">
+                        <div class="row alert mt-2">
+                            <div class="col-lg-8 text-center bold mb-2"> 
+                                <span style="border-bottom: 5px solid rgb(231, 32, 32);">  &nbsp Total Customer Visited  &nbsp </span>
+                            </div>
+                            <div class="col-lg-4 mb-2">
+                                <form class="d-flex">
+                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
+                            </div>
+                        </div>
+
+
+                        <section class="row">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                <thead>
+                                    <tr class="bg-dark">
+                                    {% for j in table.column %}
+                                        <th class="text-light bold1 text-center">{{j}}</th>
+                                    {% endfor %}
+                                    <th class="text-light bold1 text-center ">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for i in table.data  %}
+                                    <tr>
+                                    {% for j,k in i.items  %}
+                                    <td class="text-secondary text-center bold1"> {{k}} </td>  
+                                    {% endfor %}
+                                    <td class="text-secondary d-flex justify-content-around">
+                                        <form action="" method="post" class="d-flex inline">  
+                                        {% csrf_token %}              
+                                        <input type="text" name="id" hidden="true" id="" value="{{i.id}}">
+                                        &nbsp &nbsp
+                                        <input class="btn btn-danger" name="Delete" type="submit" value="Delete">
+                                        </form>   
+                                    </td>   
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                                </table>
+                            </div>
+                        </section>
+                </div>
+            </div>
+
+            
+   
+
+</div>
+
+{% endblock  %}

@@ -1,0 +1,251 @@
+.bold{
+    font-size: 4vh;
+    font-weight: 600;
+    font-family: serif;
+    
+}
+.navheader{
+    font-size: 4vh;
+    font-weight: 900;
+    font-family: serif;
+}
+.bodybox{
+    position: absolute;
+    top:10vh;
+    width: 99.5%;
+    left: .25%;
+    max-height: 70000000000000vh;
+    position: relative;
+    overflow: hidden;
+}
+.BannerMainBox{
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    
+}
+.BannerBox{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Cusbanner{
+    width: 100%;  
+    height:100%;
+    background: url(../images/wallpeperrestro.jpg);           
+    background-position: center;
+    background-size: cover;
+    filter: blur(2px);
+    opacity: .9;
+    animation: animate 100s ease-in-out infinite;
+}
+
+@keyframes animate{
+    0%{
+        background: url(../images/backgroun_plate.jpg);           
+        background-position: center;
+        background-size: cover;
+        animation-delay: 10s;
+    }
+    20%{
+        background: url(../images/BackgroundChomien.jpg); 
+        background-position: center;
+        background-size: cover;  
+        animation-delay: 10s;
+    }
+    40%{
+        background: url(../images/backgroundFood.jpg); 
+        background-position: center;
+        background-size: cover;  
+        animation-delay: 10s;
+    }
+    60%{
+        background: url(../images/backgroundtrayWomen.jpg);
+        background-position: center;
+        background-size: cover;  
+        animation-delay: 10s; 
+    }
+    80%{
+        background: url(../images/backgroundBread.jpg);
+        background-position: center;
+        background-size: cover; 
+        animation-delay: 10s;  
+    }
+    100%{
+        background: url(../images/wallpeperrestro.jpg);           
+        background-position: center;
+        background-size: cover; 
+        animation-delay: 10s;  
+    }
+
+}
+/*Banner text start*/
+.text-area{
+    font-size: 70px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 900;
+    text-shadow: 2px 2px rgb(73, 73, 73);
+    -webkit-text-stroke: .5px rgba(0, 0, 0, 0.884);
+    color:#fff;
+}
+.wrapper p{
+    font-size: 30px;
+    font-weight: 600;
+    color: #fff;
+    -webkit-text-stroke: .5px rgb(0, 0, 0);
+}
+.wrapper p span{
+    color: rgb(47, 255, 255);
+    text-shadow: 1px 1px rgb(255, 255, 255);
+}
+/*Banner text end here*/
+.Bannerarrow{
+    top:-50px;
+    width: 120px;
+    height: 120px;
+    border: 1px solid rgba(0, 0, 0, 0.445);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+.Bannerarrow a ion-icon{
+    font-size: 10vh;
+}
+
+
+        /*item cards start*/
+
+.Crdwrapper{
+    background: rgba(248, 188, 58, 0.329);
+    width: 100%;
+    max-height: 250px;
+    padding: 25px;
+    display: flex;
+    overflow: auto;
+}
+.Crdwrapper::-webkit-scrollbar{
+    width: 0;
+}
+.Crdwrapper .item{
+    position: relative;
+    min-width:250px;
+    height:200px;
+    text-align: center;
+    background: #fff;
+    margin-left: 8px;
+    border-radius: 24px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.3s ease-in-out; 
+
+}
+
+
+.Crdwrapper .item:hover{
+    height: 240px;
+}
+.Cardimg_box{
+    position: absolute;
+    top: -20px;
+    width: 200px;
+    left: 25px;
+    height: 200px;
+
+    border-radius: 4px; 
+    transition: 0.3s ease-in-out;   
+}
+.Cardimg_box img{
+    border:.5px solid rgba(58, 57, 57, 0.801);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.Crdwrapper .item:hover .Cardimg_box{
+    top: -170px;
+}
+.Cardcontent{
+    position: absolute;
+    width: 100%;
+    height: 100%;    
+    overflow: hidden;
+    transition: 0.3s ease-in-out; 
+}
+.contentDesign{
+    position: relative;
+    top: 200px;
+    width: 250px;
+    height: 200px;
+    visibility: hidden;
+    opacity: 0;
+    border-radius:0 0 47px 47px;
+    background-color: rgba(232, 255, 127, 0.671);
+    transition: 0.3s ease-in-out;
+
+
+}
+.Crdwrapper .item:hover .Cardcontent .contentDesign{
+    visibility:visible;
+    opacity: 1;
+    top: 50px;
+}
+.Beverages{
+    background: rgba(255, 235, 205, 0.295);
+}
+
+
+
+    /*item cards end*/
+@media only screen and (max-width:770px){
+    .Bannerarrow{
+        top:-50px;
+        width: 100px;
+        height: 100px;
+    }
+    .Bannerarrow  a ion-icon{
+        font-size: 6vh;
+    }
+    /*banner key farme*/
+    @keyframes animate{
+        0%{
+            background: url(../images/backgroun_plate.jpg);           
+            background-position: center;
+            background-size: contain;
+            animation-delay: 10s;
+        }
+        25%{
+            background: url(../images/BackgroundChomien.jpg); 
+            background-position: center;
+            background-size: contain;  
+            animation-delay: 10s;
+        }
+        50%{
+            background: url(../images/backgroundFood.jpg); 
+            background-position: center;
+            background-size: contain;  
+            animation-delay: 10s;
+        }
+        75%{
+            background: url(../images/backgroundtrayWomen.jpg);
+            background-position: center;
+            background-size: contain;  
+            animation-delay: 10s; 
+        }
+        100%{
+            background: url(../images/backgroundBread.jpg);
+            background-position: center;
+            background-size: contain; 
+            animation-delay: 10s;  
+        }
+       
+    
+    } /*banner key farme end*/
+    .text-area{
+        font-size: 60px;
+        
+    }
+}

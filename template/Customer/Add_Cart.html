@@ -1,0 +1,108 @@
+{% extends 'Customer/CusDashboard.html' %}
+
+{% load static %}
+{% block content %}
+<style>
+    .tablebold{
+        font-weight: 900;
+        font-family: serif;
+        font-size: 2.3vh;
+    }
+</style>
+<section class="SweetCorner mb-5" >
+  {% if cart %}
+    <div class="container ">
+        <h2>Order Now</h2>
+        <p></p>
+        
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr class="bg-dark">
+               
+                <th class="text-light text-center tablebold">Item name</th>
+                <th class="text-light text-center tablebold">Item cost</th>
+                <th class="text-light text-center tablebold">Item Quantity</th>
+                <th class="text-light text-center tablebold">Action</th>
+                
+                
+              </tr>
+            </thead>
+            <tbody>
+              {% for j in obj %}
+              <tr>
+                
+                <td class="text-dark text-center bold1" >{{j.ItemName}}</td>
+                <td class="text-secondary text-center" >₹ {{j.itemCost}}</td>
+                <td class="text-secondary text-center" >{{j.quantity}}</td>
+                <td class="text-secondary d-flex inline justify-content-around" >
+                  <a href="{% url 'CartItemFormEdit' j.id %}"" class="btn btn-info">Edit</a> &nbsp
+                  <a href="{% url 'CartItemDel' j.id %}" class="btn btn-danger">Delete</a>
+                </td>
+                
+              </tr>
+              {% endfor %}
+              <tr  >
+                <td class=" text-center " ></td><td class=" text-center " ></td>
+                <td class=" text-center" ></td><td class=" text-center" ></td>                
+              </tr>
+              <tr class="bg-warning" style="opacity: .6;" >
+              
+                <td class=" text-center  tablebold" >Total Charge</td>
+                <td class=" text-center  tablebold" >₹ {{Amount.totalvalue}}</td>
+                <td class=" text-center  tablebold" ></td>
+                <td class=" text-center" ></td>
+                
+              </tr>
+              <tr  >
+                <td class=" text-center " ></td><td class=" text-center " ></td>
+                <td class=" text-center" ></td><td class=" text-center" ></td>                
+              </tr>
+            
+              <tr  class="bg-info" style="opacity: .5;" >
+                
+                <td class=" text-center  tablebold" >tax-Gst $nbsp 8%</td>
+                <td class=" text-center  tablebold" >₹  {{Amount.gst}}</td>
+                <td class=" text-center  tablebold" ></td>
+                <td class=" text-center" ></td>
+                
+              </tr>
+              <tr class="bg-info" style="opacity: .5;"  >
+                
+                <td class=" text-center  tablebold" >Service Charge &nbsp 5%</td>
+                <td class=" text-center  tablebold" >₹  {{Amount.service}}</td>
+                <td class=" text-center  tablebold" ></td>
+                <td class=" text-center" ></td>
+                
+              </tr>
+              <tr  >
+                <td class=" text-center " ></td>  <td class=" text-center " ></td>
+                <td class=" text-center" ></td><td class=" text-center" ></td>                
+              </tr>
+              <tr class="bg-warning alert" style="opacity: .9;" >
+              
+                <td class=" text-center  tablebold" >Amount To Pay</td>
+                <td class=" text-center  tablebold" >₹ {{Amount.service}}</td>
+                <td class=" text-center  tablebold" ></td>
+                <td class=" text-center" >
+                    
+                        <a href="{% url 'Itemcheck' Amount.service %}"class="btn btn-info">PlacedOrder</a>
+                        
+                    
+                </td>
+                
+              </tr>
+            </tbody>
+          </table>
+          
+        </div>
+      </div>
+  {% else %}
+  <div class="row mt-5 alert">
+    <div class="col-lg-12 text-center bold text-danger mt-5"> First Add To Cart</div>
+  </div>
+  {% endif %}     
+
+</section>
+
+{% endblock  %}

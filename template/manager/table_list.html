@@ -1,0 +1,50 @@
+{% extends 'manager/M_dashboard.html' %}
+
+{% load static %}
+{% block content %}
+
+<div class="row">
+  <form action="" method="post">
+   <!-- <a href="{% url 'StaffAdd' %}" class="btn btn-outline-info mt-5 offset-sm-1" style="max-height: 5vh;max-width: 200px;">Add Chief</a>-->
+   <input  class="btn btn-outline-info mt-5 offset-sm-1" style="max-height: 5vh;max-width: 200px;" type="submit" name="_Add_" value="Add Staff">
+  </form>
+</div>
+
+<div class="container mt-3">
+    <h2>{{table.header}}</h2>
+    <p></p>
+    
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr class="bg-dark">
+            {% for j in table.column %}
+              <th class="text-light bold1 text-center">{{j}}</th>
+            {% endfor %}
+            <th class="text-light bold1 text-center ">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in table.data  %}
+          <tr>
+            {% for j,k in i.items  %}
+            <td class="text-secondary text-center"> {{k}} </td>  
+            {% endfor %}
+            <td class="text-secondary d-flex justify-content-around">
+              <form action="" method="post" class="d-flex inline">  
+                {% csrf_token %}              
+                <input type="text" name="id" hidden="true" id="" value="{{i.id}}">
+                <a class="btn btn-warning" href="{% url 'bannerform' i.id %}">View</a>
+                &nbsp &nbsp
+                <input class="btn btn-danger" name="Delete" type="submit" value="Delete">
+              </form>   
+          </td>   
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</div>
+
+
+{% endblock  %}

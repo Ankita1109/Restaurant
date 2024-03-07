@@ -1,0 +1,152 @@
+{% extends 'manager/M_dashboard.html' %}
+
+{% load static %}
+{% block content %}
+
+<div  class="container  mt-5" style="background-color: rgba(233, 233, 233, 0.356);">
+        <div class="row d-flex alert  justify-content-around">
+            <div class="col-lg-3 d-flex justify-content-around ">
+                <section>
+                    <div class="card  Dashboard_card alert " style="width: 18rem;">
+                        <ion-icon class="border shadow" style="color: rgb(147, 66, 253);" name="wine"></ion-icon>
+                          <div class="Dash_inner_card" style="border-bottom:1px solid rgba(0, 0, 0, 0.589);background: rgba(185, 185, 185, 0.116);;"></div> 
+                          <div class="Dash_inner_card"></div>  
+                        <div class="innerbox">
+                            <div class="wrapper123">
+                                <h2 class="bold">Beverages List</h2>
+                                <div class="row d-flex justify-content-around">
+                                    <a href="{% url 'beveragesIistAdmin' %}" style="max-width:70%;" class="btn btn-warning">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                            <div class="col-sm-12 position-relative text-center bold card_style" style="top: 18px;">
+                                Beverages
+                            </div>
+                    </div>                   
+                </section>
+            </div>
+            <div class="col-lg-3 d-flex justify-content-around">
+                <section>
+                    <div class="card  Dashboard_card alert " style="width: 18rem;">
+                        <ion-icon class="border shadow" style="color: rgb(253, 125, 66);" name="restaurant"></ion-icon>
+                          <div class="Dash_inner_card" style="border-bottom:1px solid rgba(0, 0, 0, 0.589);background: rgba(185, 185, 185, 0.116);;"></div> 
+                          <div class="Dash_inner_card"></div>  
+                        <div class="innerbox">
+                            <div class="wrapper123">
+                                <h2 class="bold">Main Cource</h2>
+                                <div class="row d-flex justify-content-around">
+                                    <a href="{% url 'Main_CourceAdmin' %}" style="max-width:70%;" class="btn btn-warning">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                            <div class="col-sm-12 position-relative text-center bold card_style" style="top: 18px;">
+                                Main Cource
+                            </div>
+                    </div>                   
+                </section>
+            </div>
+
+            <div class="col-lg-3 d-flex justify-content-around">
+                <section>
+                    <div class="card  Dashboard_card alert " style="width: 18rem;">
+                        <ion-icon class="border shadow" style="color: rgb(253, 234, 66);" name="ice-cream"></ion-icon>
+                          <div class="Dash_inner_card" style="border-bottom:1px solid rgba(0, 0, 0, 0.589);background: rgba(185, 185, 185, 0.116);;"></div> 
+                          <div class="Dash_inner_card"></div>  
+                        <div class="innerbox">
+                            <div class="wrapper123">
+                                <h2 class="bold"> Sweet-Corner </h2>
+                                <div class="row d-flex justify-content-around">
+                                    <a href="{% url 'SweetCornerListAdmin' %}" style="max-width:70%;" class="btn btn-warning">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                            <div class="col-sm-12 position-relative text-center bold card_style" style="top: 18px;">
+                                Sweet-Corner
+                            </div>
+                    </div>                   
+                </section>
+            </div>
+
+        </div>
+        <div class="row mt-4 d-flex justify-content-around">
+            
+           
+            <div class="col-lg-3 d-flex justify-content-around">
+                <section>
+                    <div class="card  Dashboard_card alert " style="width: 18rem;">
+                        <ion-icon class="border shadow" style="color: rgb(67, 253, 129);" name="pizza"></ion-icon>
+                          <div class="Dash_inner_card" style="border-bottom:1px solid rgba(0, 0, 0, 0.589);background: rgba(185, 185, 185, 0.116);"></div> 
+                          <div class="Dash_inner_card"></div>  
+                        <div class="innerbox">
+                            <div class="wrapper123">
+                                <h2 class="bold"> Rice-Chapti </h2>
+                                <div class="row d-flex justify-content-around">
+                                    <a href="{% url 'RiceChapatiList' %}" style="max-width:70%;" class="btn btn-warning">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                            <div class="col-sm-12 position-relative text-center bold card_style" style="top: 18px;">
+                                Rice & Chapti
+                            </div>
+                    </div>                   
+                </section>
+            </div>
+
+            <div class="col-lg-3 d-flex justify-content-around">
+                <section>
+                    <div class="card  Dashboard_card alert " style="width: 18rem;">
+                        <ion-icon class="border shadow" style="color: rgba(253, 67, 67, 0.747);" name="egg"></ion-icon>
+                          <div class="Dash_inner_card" style="border-bottom:1px solid rgba(0, 0, 0, 0.589);background: rgba(185, 185, 185, 0.116);"></div> 
+                          <div class="Dash_inner_card"></div>  
+                        <div class="innerbox">
+                            <div class="wrapper123">
+                                <h2 class="bold"> Starter-Dish </h2>
+                                <div class="row d-flex justify-content-around">
+                                    <a href="{% url 'starterListAdmin' %}" style="max-width:70%;" class="btn btn-warning">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                            <div class="col-sm-12 position-relative text-center bold card_style" style="top: 18px;">
+                                Starter Dish
+                            </div>
+                    </div>                   
+                </section>
+            </div>
+
+            <div class="col-lg-3 d-flex justify-content-around">
+                <section>
+                    <div class="card  Dashboard_card alert " style="width: 18rem;">
+                        <ion-icon class="border shadow" style="color: rgba(9, 152, 248, 0.897);" name="fish"></ion-icon>
+                          <div class="Dash_inner_card" style="border-bottom:1px solid rgba(0, 0, 0, 0.589);background: rgba(185, 185, 185, 0.116);"></div> 
+                          <div class="Dash_inner_card"></div>  
+                        <div class="innerbox">
+                            <div class="wrapper123">
+                                <h2 class="bold">Chinese-Snacks </h2>
+                                <div class="row d-flex justify-content-around">
+                                    <a href="{% url 'ChineseSnacksListAdmin' %}" style="max-width:70%;" class="btn btn-warning">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                            <div class="col-sm-12 position-relative text-center bold card_style" style="top: 18px;">
+                                Chinese & Snacks
+                            </div>
+                    </div>                   
+                </section>
+            </div>
+
+        </div>
+</div>
+
+{% endblock  %}

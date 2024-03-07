@@ -1,0 +1,35 @@
+.section_main{
+    position: relative;
+    
+    height: 100vh;
+}
+.section{
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background:url(../images/backgroundtrayWomen.jpg);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    filter: blur(5px); 
+    z-index: -3;
+}
+.login_form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bold{
+    font-size: 4.3vh;
+    letter-spacing: 5px;
+    font-weight: 900;
+    color: rgb(238, 238, 238);
+    -webkit-text-stroke: 2.8px rgb(109, 102, 102);
+}
+.forgetPassword{
+    text-decoration: none;
+    font-weight: 700;
+    color: rgb(6, 120, 185);
+}

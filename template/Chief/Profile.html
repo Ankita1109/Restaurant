@@ -1,0 +1,53 @@
+{% extends 'Chief/DashBoardcheif.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-4">
+{% if update %}
+    <div class="row d-flex justify-content-around mb-5">    
+        <div class="card" style="width:16rem;padding:5px;">
+          {% if obj.ProfileImage %}
+          <img style="max-height: 15rem;" class="card-img-top mb-5 shadow" src="/media/{{obj.ProfileImage}}" alt="Card image">
+          {% else %}
+          <img style="max-height: 15rem;" class="card-img-top shadow mb-5" src="{% static 'images/Vodka.jpg' %}" alt="Card image">
+          {% endif %}
+        </div>
+    </div>
+{% endif %}
+
+    <div class="row  d-flex justify-content-around">
+        <div class="col-lg-8">
+            <form action="" method="post"  enctype="multipart/form-data" >
+                {% csrf_token %}
+                <div class="container bg-light alert shadow border">
+                    {% for k  in  form %}                      
+                    
+                    <div class="row mb-3 ">
+                        <div class="col-lg-3 label-control offset-lg-1 bold1 mb-1">
+                           {{k.label}} &nbsp :
+                        </div>
+                        <div class="col-lg-7">
+                            {{k}}
+                        </div>
+                    </div> 
+                    
+                    {% endfor %} 
+                    {% if update %}   
+                        <div class="row d-flex justify-content-around">
+                          <a href="{% url 'chief_Update' obj.UserId %}" style="max-width: 140px;" class="btn btn-warning">Update</a>
+                         </div>
+
+                    {% else %}    
+                        <div class="row d-flex justify-content-around">
+                        <input type="submit" style="max-width: 150px;" name='Submit' class="btn btn-warning" value="Submit">
+                        </div>
+                    {% endif %} 
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock  %}

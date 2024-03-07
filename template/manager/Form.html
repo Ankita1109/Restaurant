@@ -1,0 +1,39 @@
+{% extends 'manager/M_dashboard.html' %}
+
+{% block content %}
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-sm-12 text-center bold mb-4">
+                {{header}}
+        </div>
+    </div>
+    <div class="row  d-flex justify-content-around">
+        <div class="col-lg-8">
+            <form action="" method="post"  enctype="multipart/form-data" >
+                {% csrf_token %}
+                <div class="container bg-light alert shadow border">
+                    {% for k  in  form %}                      
+                    
+                    <div class="row mb-3 ">
+                        <div class="col-lg-3 label-control offset-lg-1 bold1 mb-1">
+                           {{k.label}} &nbsp :
+                        </div>
+                        <div class="col-lg-7">
+                            {{k}}
+                        </div>
+                    </div> 
+                    
+                    {% endfor %}                    
+                    <div class="row d-flex justify-content-around">
+                    <input type="submit" style="max-width: 150px;" name='Submit' class="btn btn-warning" value="Submit">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock  %}

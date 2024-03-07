@@ -1,0 +1,135 @@
+{% extends 'Customer/CusDashboard.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+<section class=" SweetCorner ">
+    {% if obj %}
+    <div class="row">
+        <div class="col-sm-12 position-relative">
+            <img class="SweetDishBanner" src="/media/{{obj}}" alt="">
+            <div class="BaveragesBannerhead">
+                <div class="wrapper">
+                    <h2 class="BeveragesHeader">Sweet Corner</h2>
+                    <p style="left: -5px;position: relative;">Taste Something Sweet</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row  d-flex justify-content-around " >
+
+        <div class="col-sm-3  position-relative d-flex justify-content-around" style="height: 14.5vh;">
+          <div class="card alert Bannerarrow ">
+           <a href="#Icecream"><ion-icon class="text-warning" name="chevron-down-outline">dw</ion-icon> </a>
+          </div>
+        </div>
+
+    </div>
+    {% endif %}
+    <!--Sweet vard block start-->
+    <div class="conatiner">
+        {% if sweetdish %}
+            <!--sweetdish start-->
+            <div class="row mb-4">
+                <div class="col-md-3 text-center text-secondary bold">SweetDish &nbsp :: </div>
+            </div>
+            {% for j in sweetdish %}
+            <div class="row d-flex justify-content-around">
+                    {% for i in j %}
+                    <div class="col-sm-3 mb-4 d-flex justify-content-around">
+                        <div class="card border shadow-lg" style="width:18rem;padding: 6px;">
+                            <img style="max-height:35vh;" class="card-img-top border shadow" src="/media/{{i.DessertImage}}" alt="Card image">
+                            <div class="card-body">
+                            <h4 class="card-title">{{i.DessertName}}</h4>
+                            <p class="card-text">
+                                Cost :<span style="font-size: 2vh;">&nbsp ₹</span>{{i.DessertCost}} &nbsp  
+                            </p>
+                            <form action="" method="post">
+                                {% csrf_token %} 
+                                <input type="text" name="DessertName" id="" hidden='true' value='{{i.DessertName}}'>
+                                <input type="text" name="DessertType" id="" hidden='true' value='{{i.DessertType}}'>
+                                <input type="text" name="DessertCost" id="" hidden='true' value='{{i.DessertCost}}'>
+                                <input class="btn btn-warning" name="Dessert" type="submit" value="Add To Cart">
+                            </form>
+                            </div>
+                        </div>
+                    </div> 
+                    {% endfor %}
+            </div>
+            {% endfor %}
+        {% endif %}
+            <!--sweetdish end-->
+
+            <!--IceCream start-->
+        {% if icecream %}
+            <div class="row mb-4" id="Icecream">
+                <div class="col-md-3 text-center text-secondary bold">Ice Cream &nbsp :: </div>
+            </div>
+            {% for j  in  icecream %}
+            <div class="row d-flex justify-content-around">
+                {% for i in j %}
+                <div class="col-sm-3 mb-4 d-flex justify-content-around">
+                    <div class="card border shadow-lg" style="width:18rem;padding: 6px;">
+                        <img style="max-height:35vh;" class="card-img-top border shadow" src="/media/{{i.DessertImage}}" alt="Card image">
+                        <div class="card-body">
+                        <h4 class="card-title">{{i.DessertName}}</h4>
+                        <p class="card-text">
+                            Cost :<span style="font-size: 2vh;">&nbsp ₹</span>{{i.DessertCost}} &nbsp  
+                        </p>
+                        <form action="" method="post">
+                            {% csrf_token %} 
+                            <input type="text" name="DessertName" id="" hidden='true' value='{{i.DessertName}}'>
+                            <input type="text" name="DessertType" id="" hidden='true' value='{{i.DessertType}}'>
+                            <input type="text" name="DessertCost" id="" hidden='true' value='{{i.DessertCost}}'>
+                            <input class="btn btn-warning" name="Dessert" type="submit" value="Add To Cart">
+                        </form>
+                        </div>
+                    </div>
+                </div> 
+                {% endfor %}
+            </div>
+            <!--IceCream end-->
+            {% endfor %}
+        {% endif %}
+
+        {% if chocolate %}
+            <!--Chocolate start-->
+            <div class="row mb-4">
+                <div class="col-md-3 text-center text-secondary bold">Chocolate &nbsp :: </div>
+            </div>
+
+            {% for j in chocolate %}
+            <div class="row d-flex justify-content-around">
+                {% for i in j %}
+                <div class="col-sm-3 mb-4 d-flex justify-content-around">
+                    <div class="card border shadow-lg" style="width:18rem;padding: 6px;">
+                        <img style="max-height:35vh;" class="card-img-top border shadow" src="/media/{{i.DessertImage}}" alt="Card image">
+                        <div class="card-body">
+                        <h4 class="card-title">{{i.DessertName}}</h4>
+                        <p class="card-text">
+                            Cost :<span style="font-size: 2vh;">&nbsp ₹</span>{{i.DessertCost}} &nbsp  
+                        </p>
+                        <form action="" method="post">
+                            {% csrf_token %} 
+                            <input type="text" name="DessertName" id="" hidden='true' value='{{i.DessertName}}'>
+                            <input type="text" name="DessertType" id="" hidden='true' value='{{i.DessertType}}'>
+                            <input type="text" name="DessertCost" id="" hidden='true' value='{{i.DessertCost}}'>
+                            <input class="btn btn-warning" name="Dessert" type="submit" value="Add To Cart">
+                        </form>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+            <!--Chocolate end-->
+        {% endif %}
+    </div>
+    <!--Sweet vard block end-->
+
+
+</section>
+
+{% endblock  %}

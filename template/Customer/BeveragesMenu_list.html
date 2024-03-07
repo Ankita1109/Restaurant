@@ -1,0 +1,221 @@
+{% extends 'Customer/CusDashboard.html' %}
+
+{% load static %}
+{% block content %}
+
+<div class="conatiner BeveragesContainer">
+    <!--Banner Start-->
+    {% if obj %}
+    <div class="row mb-5">
+        <div class="col-md-12 position-relative">
+            <img class="BeveragesBanner" src="/media/{{obj}}" alt="">
+            <div class="BaveragesBannerhead">
+                <div class="wrapper">
+                    <h2 class="BeveragesHeader">{{Beverages}}</h2>
+                    <p style="left: -5px;position: relative;">Taste Something Refresh</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row  d-flex justify-content-around " >
+
+      <div class="col-sm-3  position-relative d-flex justify-content-around" style="height: 14.5vh;">
+        <div class="card alert Bannerarrow ">
+         <a href="" ><ion-icon class="text-warning" name="chevron-down-outline">dw</ion-icon> </a>
+        </div>
+      </div>
+
+    </div>
+    {% endif %}
+    <!--Banner End-->
+    {% if BevergesHeader %}
+      <div class="row mt-5 mb-4">
+        <div class="col-sm-12 text-center bold text-secondary">{{BevergesHeader}}</div>
+      </div>
+      {% endif %}
+
+    {% if colddrink %}
+        <div class="row mb-4">
+            <div class="col-md-3 text-center text-secondary bold"> Coldrink &nbsp :: </div>
+        </div>
+        {% for j in colddrink  %}
+          <div class="row d-flex justify-content-around">
+              {% for i in j %}
+                  <div class="col-sm-3 mb-2 d-flex justify-content-around">
+                      <div class="card border shadow-lg" style="width:18rem;padding: 6px;">
+                          <img style="max-height:35vh;" class="card-img-top border shadow" src="/media/{{i.DrinkImage}}" alt="Card image">
+                          <div class="card-body">
+                            <h4 class="card-title">{{i.DrinkName}}</h4>
+                            <p class="card-text">
+                              Cost :<span style="font-size: 2vh;">&nbsp ₹</span>{{i.DrinkCost}}&nbsp  ({{i.Brand}})
+                            </p>
+                            <form action="" method="post">
+                              {% csrf_token %} 
+                              <input type="text" name="DrinkName" id="" hidden='true' value='{{i.DrinkName}}'>
+                              <input type="text" name="BeveragesDrinkType" id="" hidden='true' value='{{i.DrinkType}}'>
+                              <input type="text" name="BeveragesDrinkCost" id="" hidden='true' value='{{i.DrinkCost}}'>
+                              <input class="btn btn-warning" name="Beverages" type="submit" value="Add To Cart">
+                            </form>
+                          </div>
+                        </div>
+                  </div> 
+              {% endfor %}
+          </div>
+        {% endfor %}
+    {% endif %}
+
+    {% if mocktail %}
+    <div class="row mt-5 mb-4">
+        <div class="col-md-3 text-center text-secondary bold"> Mocktail &nbsp :: </div>
+    </div>
+      {% for j  in mocktail  %}
+        <div class="row  d-flex justify-content-around">
+            {% for i in j %}
+                <div class="col-sm-3 mb-2 d-flex justify-content-around">
+                    <div class="card border shadow-lg" style="width:18rem;padding: 6px;">
+                        <img style="max-height:35vh;" class="card-img-top border shadow" src="/media/{{i.DrinkImage}}" alt="Card image">
+                        <div class="card-body">
+                          <h4 class="card-title">{{i.DrinkName}}</h4>
+                          <p class="card-text">
+                            Cost :<span style="font-size: 2vh;">&nbsp ₹</span>{{i.DrinkCost}}&nbsp  ({{i.Brand}})
+                          </p>
+                          <form action="" method="post">
+                            {% csrf_token %} 
+                            <input type="text" name="DrinkName" id="" hidden='true' value='{{i.DrinkName}}'>
+                            <input type="text" name="BeveragesDrinkType" id="" hidden='true' value='{{i.DrinkType}}'>
+                            <input type="text" name="BeveragesDrinkCost" id="" hidden='true' value='{{i.DrinkCost}}'>
+                            <input class="btn btn-warning" name="Beverages" type="submit" value="Add To Cart">
+                          </form>
+                        </div>
+                      </div>
+                </div>
+            {% endfor %}
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    {% if cocktail %}
+    <div class="row mt-5 mb-4">
+        <div class="col-md-3 text-center text-secondary bold"> Cocktail &nbsp :: </div>
+    </div>
+        {% for j in cocktail %}
+        <div class="row d-flex justify-content-around">
+              {% for i in j %}
+                <div class="col-sm-3 mb-2 d-flex justify-content-around">
+                    <div class="card border shadow-lg" style="width:18rem;padding: 6px;">
+                          <img style="max-height:35vh;" class="card-img-top border shadow" src="/media/{{i.DrinkImage}}" alt="Card image">
+                          <div class="card-body">
+                            <h4 class="card-title">{{i.DrinkName}}</h4>
+                            <p class="card-text">
+                              Cost :<span style="font-size: 2vh;">&nbsp ₹</span>{{i.DrinkCost}}&nbsp  ({{i.Brand}})
+                            </p>
+                            <form action="" method="post">
+                              {% csrf_token %} 
+                              <input type="text" name="DrinkName" id="" hidden='true' value='{{i.DrinkName}}'>
+                              <input type="text" name="BeveragesDrinkType" id="" hidden='true' value='{{i.DrinkType}}'>
+                              <input type="text" name="BeveragesDrinkCost" id="" hidden='true' value='{{i.DrinkCost}}'>
+                              <input class="btn btn-warning" name="Beverages" type="submit" value="Add To Cart">
+                            </form>
+                          </div>
+                      </div>
+                </div> 
+              {% endfor %}      
+        </div>
+        {% endfor %}
+    {% endif %}
+
+    {% if vodka %}
+    <div class="row mt-5 mb-4">
+        <div class="col-md-3 text-center text-secondary bold"> Vodka &nbsp :: </div>
+    </div>
+    {% for j in vodka %}
+      <div class="row d-flex justify-content-around">
+        {% for i in j %}
+              <div class="col-sm-3 mb-2 d-flex justify-content-around">
+                  <div class="card border shadow-lg" style="width:18rem;padding: 6px;">
+                        <img style="max-height:35vh;" class="card-img-top border shadow" src="/media/{{i.DrinkImage}}" alt="Card image">
+                        <div class="card-body">
+                          <h4 class="card-title">{{i.DrinkName}}</h4>
+                          <p class="card-text">
+                            Cost :<span style="font-size: 2vh;">&nbsp ₹</span>{{i.DrinkCost}}&nbsp  ({{i.Brand}})
+                          </p>
+                          <form action="" method="post">
+                            {% csrf_token %} 
+                            <input type="text" name="DrinkName" id="" hidden='true' value='{{i.DrinkName}}'>
+                            <input type="text" name="BeveragesDrinkType" id="" hidden='true' value='{{i.DrinkType}}'>
+                            <input type="text" name="BeveragesDrinkCost" id="" hidden='true' value='{{i.DrinkCost}}'>
+                            <input class="btn btn-warning" name="Beverages" type="submit" value="Add To Cart">
+                          </form>
+                        </div>
+                  </div>
+              </div>
+        {% endfor %}        
+      </div>
+      {% endfor %}
+    {% endif %}
+
+    {% if beer %}
+    <div class="row mt-5 mb-4">
+        <div class="col-md-3 text-center text-secondary bold"> Beer &nbsp :: </div>
+    </div>
+
+      {% for j in beer %}
+        <div class="row d-flex justify-content-around">
+          {% for i in j %}
+            <div class="col-sm-3 mb-2 d-flex justify-content-around">
+                <div class="card border shadow-lg" style="width:18rem;padding: 6px;">
+                      <img style="max-height:35vh;" class="card-img-top border shadow" src="/media/{{i.DrinkImage}}" alt="Card image">
+                      <div class="card-body">
+                        <h4 class="card-title">{{i.DrinkName}}</h4>
+                        <p class="card-text">
+                          Cost :<span style="font-size: 2vh;">&nbsp ₹</span>{{i.DrinkCost}}&nbsp  ({{i.Brand}})
+                        </p>
+                        <form action="" method="post">
+                          {% csrf_token %} 
+                          <input type="text" name="DrinkName" id="" hidden='true' value='{{i.DrinkName}}'>
+                          <input type="text" name="BeveragesDrinkType" id="" hidden='true' value='{{i.DrinkType}}'>
+                          <input type="text" name="BeveragesDrinkCost" id="" hidden='true' value='{{i.DrinkCost}}'>
+                          <input class="btn btn-warning" name="Beverages" type="submit" value="Add To Cart">
+                        </form>
+                      </div>
+                  </div>
+            </div>  
+          {% endfor %}        
+        </div>
+      {% endfor %}
+    {% endif %}
+
+
+    {% if wine %}
+    <div class="row mt-5 mb-4">
+        <div class="col-md-3 text-center text-secondary bold"> Wine &nbsp :: </div>
+    </div>
+
+    {% for j in wine  %}
+    <div class="row d-flex justify-content-around">
+      {% for i in j %}
+          <div class="col-sm-3 mb-2 d-flex justify-content-around">
+              <div class="card border shadow-lg" style="width:18rem;padding: 6px;">
+                    <img style="max-height:35vh;" class="card-img-top border shadow" src="/media/{{i.DrinkImage}}" alt="Card image">
+                    <div class="card-body">
+                      <h4 class="card-title">{{i.DrinkName}}</h4>
+                      <p class="card-text">
+                        Cost :<span style="font-size: 2vh;">&nbsp ₹</span>{{i.DrinkCost}}&nbsp  ({{i.Brand}})
+                      </p>
+                      <form action="" method="post">
+                        {% csrf_token %} 
+                        <input type="text" name="DrinkName" id="" hidden='true' value='{{i.DrinkName}}'>
+                        <input type="text" name="BeveragesDrinkType" id="" hidden='true' value='{{i.DrinkType}}'>
+                        <input type="text" name="BeveragesDrinkCost" id="" hidden='true' value='{{i.DrinkCost}}'>
+                        <input class="btn btn-warning" name="Beverages" type="submit" value="Add To Cart">
+                      </form>
+                    </div>  
+                </div>
+          </div>
+        {% endfor %}       
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+
+{% endblock  %}
